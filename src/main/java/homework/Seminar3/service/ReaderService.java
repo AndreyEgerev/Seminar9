@@ -33,4 +33,7 @@ public class ReaderService {
     public List<Issue> getIssueByIdReader(Long id) {
         return issuerService.getIssuesByIdReader(id);
     }
+    public List<Reader> getAllReader() {
+        return readerRepository.getAllReader();
+    }
 }

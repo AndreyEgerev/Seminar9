@@ -59,5 +59,8 @@ public class BookRepository {
             .findFirst()
             .orElse(null);
   }
+  public List<Book> getAllBook() {
+    return List.copyOf(books);
+  }
 
 }

@@ -21,11 +21,6 @@ public class IssuerController {
   private IssuerService service;
 
 
-//  @PutMapping
-//  public void returnBook(long issueId) {
-//    // найти в репозитории выдачу и проставить ей returned_at
-//  }
-
   @PostMapping
   public ResponseEntity<Issue> issueBook(@RequestBody IssueRequest request) {
     log.info("Получен запрос на выдачу: readerId = {}, bookId = {}", request.getReaderId(), request.getBookId());

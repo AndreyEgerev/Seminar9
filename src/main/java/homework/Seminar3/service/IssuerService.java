@@ -54,5 +54,8 @@ public class IssuerService {
   public Issue returnedIssue(Long id) {
     return issueRepository.returnedIssue(id);
   }
+  public List<Issue> getAllIssue() {
+    return issueRepository.getAllIssues();
+  }
 
 }

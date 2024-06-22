@@ -45,4 +45,8 @@ public class IssueRepository {
             .orElse(null);
   }
 
+  public List<Issue> getAllIssues() {
+    return List.copyOf(issues);
+  }
+
 }
