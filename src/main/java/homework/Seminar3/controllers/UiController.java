@@ -63,9 +63,6 @@ public class UiController {
         return "readerId";
     }
 
-    @ExceptionHandler(NoSuchElementException.class)
-    public ResponseEntity<String> notFound(NoSuchElementException e) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-    }
+
 
 }

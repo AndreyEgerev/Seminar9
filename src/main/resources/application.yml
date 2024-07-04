@@ -1,2 +1,15 @@
 application:
   max-allowed-books: 2
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.15:3306/dbtest1
+#    url: jdbc:mysql://localhost:3306/dbtest1
+    username: test1
+#    username: root
+    password: test1User1#123
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true

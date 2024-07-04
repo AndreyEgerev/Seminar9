@@ -26,6 +26,14 @@ public class BooksController {
             ? ResponseEntity.ok(book)
             : ResponseEntity.notFound().build();
     }
+    @GetMapping
+    public ResponseEntity<List<Book>> getBookById() {
+        List<Book> book = bookService.getAllBook();
+        log.info(!book.isEmpty() ? book.toString() : "none");
+        return !book.isEmpty()
+                ? ResponseEntity.ok(book)
+                : ResponseEntity.notFound().build();
+    }
 
     @PostMapping
     public ResponseEntity<Book> createBook(@RequestBody Book book) {

@@ -24,14 +24,18 @@ public class IssuerController {
   @PostMapping
   public ResponseEntity<Issue> issueBook(@RequestBody IssueRequest request) {
     log.info("Получен запрос на выдачу: readerId = {}, bookId = {}", request.getReaderId(), request.getBookId());
-    final Issue issue;
+    Issue issue;
     try {
       issue = service.issue(request);
+      log.info(issue.toString());
     } catch (NoSuchElementException e) {
+      log.info("404");
       return ResponseEntity.notFound().build();
     } catch (RuntimeException e) {
+      log.info("409");
       return new ResponseEntity<>(HttpStatusCode.valueOf(409));
     }
+      log.info("200 {}", issue);
     return ResponseEntity.status(HttpStatus.OK).body(issue);
   }
 
