@@ -1,5 +1,6 @@
 package homework.Seminar3.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,12 +11,15 @@ import lombok.RequiredArgsConstructor;
 @Table(name = "reader")
 @Data
 @RequiredArgsConstructor
+@Schema(name = "Readers")
 public class Reader {
 
   public static long sequence = 1L;
   @Id
+  @Schema(name = "ID")
   private Long id;
   @Column
+  @Schema(name = "Имя читателя")
   private String name;
 
   public Reader(String name) {

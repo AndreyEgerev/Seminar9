@@ -1,5 +1,6 @@
 package homework.Seminar3.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -18,18 +19,24 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "issue")
 @RequiredArgsConstructor
+@Schema(name = "Выдача книг")
 public class Issue {
 
   public static long sequence = 1L;
   @Id
+  @Schema(name = "ID")
   private Long id;
   @Column
+  @Schema(name = "ID книги")
   private Long bookId;
   @Column
+  @Schema(name = "ID читателя")
   private Long readerId;
   @Column
+  @Schema(name = "Дата выдачи")
   private LocalDateTime timestamp;
   @Column
+  @Schema(name = "Дата возврата")
   private LocalDateTime returnedTimestamp;
 
   public Issue(long bookId, long readerId) {

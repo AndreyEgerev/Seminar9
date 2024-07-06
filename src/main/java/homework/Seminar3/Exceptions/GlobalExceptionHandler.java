@@ -1,4 +1,4 @@
-package homework.Seminar3.controllers;
+package homework.Seminar3.Exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
