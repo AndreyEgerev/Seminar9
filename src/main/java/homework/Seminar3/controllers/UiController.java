@@ -44,13 +44,13 @@ public class UiController {
         return "readers";
     }
 
-    @GetMapping("/issue")
+    @GetMapping("/issues")
     public String getAllIssue(Model model) {
         model.addAttribute("issues", issuerService.getAllIssue());
         return "issues";
     }
 
-    @GetMapping("/reader/{id}")
+    @GetMapping("/readers/{id}")
     public String getIssueById(Model model, @PathVariable Long id) {
         Reader reader = readerService.getReaderById(id);
         if (reader == null) {
