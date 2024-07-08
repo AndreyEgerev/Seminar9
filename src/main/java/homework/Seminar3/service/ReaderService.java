@@ -1,5 +1,6 @@
 package homework.Seminar3.service;
 
+import homework.Seminar3.aspect.Timer;
 import homework.Seminar3.model.Issue;
 import homework.Seminar3.model.Reader;
 import homework.Seminar3.repository.ReaderRepository;
@@ -11,12 +12,13 @@ import java.util.List;
 
 @Slf4j
 @Service
+@Timer// определение времени выполнения
 public class ReaderService {
     @Autowired
     private ReaderRepository readerRepository;
     @Autowired
     private IssuerService issuerService;
-
+    @Timer
     public Reader getReaderById(long id) {
         //return readerRepository.getReaderById(id);
         return readerRepository.findById(id).orElse(null);

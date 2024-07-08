@@ -1,5 +1,6 @@
 package homework.Seminar3.service;
 
+import homework.Seminar3.aspect.Timer;
 import homework.Seminar3.controllers.IssueRequest;
 import homework.Seminar3.model.Issue;
 
@@ -20,6 +21,7 @@ import java.util.Optional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@Timer
 public class IssuerService {
 
 

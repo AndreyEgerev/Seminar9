@@ -1,5 +1,6 @@
 package homework.Seminar3.controllers;
 
+import homework.Seminar3.aspect.RecoverException;
 import homework.Seminar3.model.Book;
 import homework.Seminar3.model.Issue;
 import homework.Seminar3.model.Reader;
@@ -49,7 +50,7 @@ public class UiController {
         model.addAttribute("issues", issuerService.getAllIssue());
         return "issues";
     }
-
+    @RecoverException(noRecoverFor = NoSuchElementException.class)
     @GetMapping("/readers/{id}")
     public String getIssueById(Model model, @PathVariable Long id) {
         Reader reader = readerService.getReaderById(id);

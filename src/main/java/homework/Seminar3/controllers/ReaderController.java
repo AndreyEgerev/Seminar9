@@ -1,5 +1,6 @@
 package homework.Seminar3.controllers;
 
+import homework.Seminar3.aspect.Timer;
 import homework.Seminar3.model.Book;
 import homework.Seminar3.model.Issue;
 import homework.Seminar3.model.Reader;
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/reader")
 @Tag(name = "Читатели")
+@Timer
 public class ReaderController {
 
     @Autowired
@@ -26,6 +28,7 @@ public class ReaderController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Get reader by id", description = "Загружает читателя с указанным идентификатором в пути")
+    @Timer
     public ResponseEntity<Reader> getReaderById(@PathVariable long id) {
         Reader reader = readerService.getReaderById(id);
         log.info(reader.toString());

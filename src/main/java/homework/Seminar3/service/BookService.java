@@ -1,5 +1,6 @@
 package homework.Seminar3.service;
 
+import homework.Seminar3.aspect.Timer;
 import homework.Seminar3.model.Book;
 import homework.Seminar3.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Timer
 public class BookService {
     @Autowired
     private BookRepository bookRepository;
