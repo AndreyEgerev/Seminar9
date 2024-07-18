@@ -1,5 +1,6 @@
 package homework.controllers;
 
+import homework.aspect.Timer;
 import homework.api.Issue;
 import homework.api.Reader;
 import homework.service.ReaderService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
+@Timer
 @RestController
 @RequestMapping("/reader")
 @Tag(name = "Читатели")

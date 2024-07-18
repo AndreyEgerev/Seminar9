@@ -20,7 +20,8 @@
 		<module>api-model</module>
 		<module>discovery-service</module>
 		<module>issue-service</module>
-	</modules>
+        <module>Aspect</module>
+    </modules>
     <properties>
 		<java.version>21</java.version>
 	</properties>

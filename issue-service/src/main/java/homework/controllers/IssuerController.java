@@ -1,6 +1,7 @@
 package homework.controllers;
 
 import homework.api.Issue;
+import homework.aspect.Timer;
 import homework.service.IssuerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Slf4j
+@Timer
 @RestController
 @RequestMapping("/issue")
 @Tag(name = "Выдача книг")

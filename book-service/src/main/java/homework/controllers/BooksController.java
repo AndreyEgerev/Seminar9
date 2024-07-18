@@ -1,6 +1,7 @@
 package homework.controllers;
 
 
+import homework.aspect.Timer;
 import homework.api.Book;
 import homework.service.BookService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
+@Timer
 @RestController
 @RequestMapping("/books")
 @Tag(name = "Книги")
@@ -21,6 +23,8 @@ public class BooksController {
 
     @Autowired
     private BookService bookService;
+//    @Autowired
+//    TestService testService;
 
 
     @GetMapping("/{id}")
@@ -32,10 +36,33 @@ public class BooksController {
             ? ResponseEntity.ok(book)
             : ResponseEntity.notFound().build();
     }
+//    @GetMapping("/test/{id}")
+//    public ResponseEntity<TestEntity> getTest(@PathVariable Long id){
+//        log.info(id.toString());
+//        testService.testData();
+//        log.info("test data load");
+//        Optional<TestEntity> testEntity = testService.findById(id);
+//        log.info(testEntity.get().toString());
+//        return testEntity.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+//    }
+//    @PostMapping(consumes="application/json")
+//    @RequestMapping(method = RequestMethod.POST)
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public ResponseEntity<TestEntity> addTest(@RequestBody TestEntity testEntity){
+//        log.info("post -");
+//        log.info(testEntity.toString());
+//        TestEntity newEntity = testService.saveNew(testEntity);
+//        if (newEntity != null){
+//            log.info(newEntity.toString());
+//            return new ResponseEntity<>(newEntity, HttpStatus.CREATED);
+//        }
+//        return ResponseEntity.badRequest().build();
+//    }
+
     @GetMapping
     @RequestMapping(method = RequestMethod.GET)
     @Operation(summary = "Get all books", description = "Загружает список всех книг, которые есть в библиотеке")
-    public ResponseEntity<List<Book>> getBookById() {
+    public ResponseEntity<List<Book>> getBooks() {
         List<Book> book = bookService.getAllBook();
         log.info(!book.isEmpty() ? book.toString() : "none");
         return !book.isEmpty()
@@ -54,6 +81,7 @@ public class BooksController {
                 : ResponseEntity.badRequest().build();
         //new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
+
     @DeleteMapping("/{id}")
     @RequestMapping(method = RequestMethod.DELETE)
     @Operation(summary = "Delete book by id", description = "Удаляет книгу с указанным идентификатором из библиотеки")
